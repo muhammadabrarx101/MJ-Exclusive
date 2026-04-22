@@ -6,12 +6,12 @@ import { ProductCard } from './components/ProductCard';
 import { PRODUCTS } from './data';
 
 const COLLECTIONS = [
-  { name: 'SHALWAR KAMEEZ', id: 'Shalwar Kameez', image: 'https://images.unsplash.com/photo-1583321500900-82807e458f3c?q=80&w=800&auto=format&fit=crop' },
-  { name: 'PAJAMA KAMEEZ', id: 'Pajama Kameez', image: 'https://picsum.photos/seed/pk1/800/1000' },
-  { name: 'THOBE', id: 'Thobe', image: 'https://picsum.photos/seed/th1/800/1000' },
-  { name: 'SHERWANI', id: 'Sherwani', image: 'https://picsum.photos/seed/sw1/800/1000' },
-  { name: 'WASIT COAT', id: 'Waist Coat', image: 'https://picsum.photos/seed/wc1/800/1000' },
-  { name: 'KUFI', id: 'Kufi', image: 'https://picsum.photos/seed/kf1/800/1000' },
+  { name: 'SHALWAR KAMEEZ', id: 'Shalwar Kameez', image: 'https://i.pinimg.com/736x/cb/28/6e/cb286ec190420dd9291cc5cd90e91b70.jpg' },
+  { name: 'PAJAMA KAMEEZ', id: 'Pajama Kameez', image: 'https://i.pinimg.com/736x/c2/91/52/c291523a89a387e8b548a4e91c74c00f.jpg' },
+  { name: 'THOBE', id: 'Thobe', image: 'https://i.pinimg.com/736x/c9/e9/26/c9e9265e4286a9e6ec58e26829b46148.jpg' },
+  { name: 'SHERWANI', id: 'Sherwani', image: 'https://i.pinimg.com/736x/ba/0a/f3/ba0af3772ccd497820e2ca0bc4157703.jpg' },
+  { name: 'WASIT COAT', id: 'Waist Coat', image: 'https://i.pinimg.com/736x/d9/3e/48/d93e48dade02d0c9285d115e8f1c02df.jpg' },
+  { name: 'KUFI', id: 'Kufi', image: 'https://s.alicdn.com/@sc04/kf/Ac304ce00ee104ec8a16886b5d686f839a/ZAF-356-Premium-Embroidered-Namaz-Prayer-Cap-Muslim-Oman-with-Breathable-Muslim-Mens-Prayer-Caps-For-Men-islamic-clothing.png' },
 ];
 
 const REVIEWS = [
