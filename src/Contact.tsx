@@ -50,8 +50,8 @@ export const Contact = () => {
                   <Globe size={20} />
                 </div>
                 <div>
-                  <h4 className="text-[10px] tracking-widest uppercase font-bold text-white/40 mb-2">Dual Regions</h4>
-                  <p className="text-xl font-display">Lahore, PK | Toronto, CA</p>
+                  <h4 className="text-[10px] tracking-widest uppercase font-bold text-white/40 mb-2">Location</h4>
+                  <p className="text-xl font-display">Lahore, Pakistan</p>
                 </div>
               </div>
             </div>

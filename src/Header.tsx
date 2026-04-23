@@ -9,12 +9,25 @@ const NavItem = ({ label, to, hasBadge = false }: { label: string, to: string, h
   const isActive = location.pathname === to;
   
   return (
-    <Link to={to} className={`px-5 py-2 text-xs font-heading font-medium tracking-widest transition-colors relative group ${isActive ? 'text-brand-gold' : 'text-obsidian/70 hover:text-brand-gold'}`}>
-      {label}
-      {hasBadge && (
-        <span className="absolute -top-1 -right-2 px-1 py-0.5 bg-brand-gold text-[8px] text-white font-bold rounded-sm">NEW</span>
-      )}
-      <span className={`absolute bottom-0 left-1/2 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full group-hover:left-0 ${isActive ? 'w-full left-0' : ''}`} />
+    <Link to={to} className={`px-4 py-2 text-[10px] font-heading font-medium tracking-wider transition-colors relative group flex flex-col items-center whitespace-nowrap ${isActive ? 'text-brand-gold' : 'text-obsidian/70 hover:text-brand-gold'}`}>
+      <span className="relative">
+        {label}
+        {hasBadge && (
+          <span className="absolute -top-3 -right-4 px-1 py-0.5 bg-brand-gold text-[6px] text-white font-bold rounded-[1px] leading-none">NEW</span>
+        )}
+      </span>
+      <AnimatePresence>
+        {isActive && (
+          <motion.div
+            layoutId="header-nav-underline"
+            className="absolute bottom-0 h-[1px] bg-brand-gold"
+            initial={{ width: 0 }}
+            animate={{ width: '40%' }}
+            exit={{ width: 0 }}
+            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+          />
+        )}
+      </AnimatePresence>
     </Link>
   );
 };
@@ -64,14 +77,14 @@ export const Header = () => {
       >
         <div className="h-10 bg-white border-b border-black/5 overflow-hidden flex items-center relative z-50">
           <div className="animate-ticker whitespace-nowrap flex gap-12 items-center text-[10px] uppercase tracking-[0.25em] font-medium text-brand-gold">
-            <span>Free Shipping on Orders Over Rs. 15,000 🇵🇰</span>
-            <span>Eid Collection: The Darbar Series Now Live</span>
-            <span>1,000+ Orders Fulfilled Nationwide PK 🇵🇰</span>
-            <span>Premium Heritage Menswear • Crafted in Lahore</span>
-            <span>Free Shipping on Orders Over Rs. 15,000 🇵🇰</span>
-            <span>Eid Collection: The Darbar Series Now Live</span>
-            <span>1,000+ Orders Fulfilled Nationwide PK 🇵🇰</span>
-            <span>Premium Heritage Menswear • Crafted in Lahore</span>
+            <span>CUSTOMER SUPPORT ( MON-FRI 10AM - 6PM )</span>
+            <span>FREE SHIPPING ON ORDERS ABOVE Rs 20,000/-</span>
+            <span>SUMMER COLLECTION NOW UPTO 30% OFF</span>
+            <span>1,000+ ORDERS FULFILLED NATIONWIDE PK</span>
+            <span>CUSTOMER SUPPORT ( MON-FRI 10AM - 6PM )</span>
+            <span>FREE SHIPPING ON ORDERS ABOVE Rs 20,000/-</span>
+            <span>SUMMER COLLECTION NOW UPTO 30% OFF</span>
+            <span>1,000+ ORDERS FULFILLED NATIONWIDE PK</span>
           </div>
         </div>
 
@@ -79,7 +92,9 @@ export const Header = () => {
           <div className="container mx-auto px-6 h-full flex items-center justify-between">
             <div className="flex-1 hidden lg:flex items-center">
               <NavItem label="HOME" to="/" />
-              <NavItem label="SHOP" to="/shop" hasBadge />
+              <NavItem label="NEW ARRIVALS" to="/new-arrivals" hasBadge />
+              <NavItem label="BEST SELLERS" to="/best-sellers" />
+              <NavItem label="SHOP" to="/shop" />
               <NavItem label="CONTACT US" to="/contact" />
             </div>
 
@@ -162,6 +177,8 @@ export const Header = () => {
             <div className="space-y-6">
               {[
                 { label: 'HOME', to: '/' },
+                { label: 'NEW ARRIVALS', to: '/new-arrivals' },
+                { label: 'BEST SELLERS', to: '/best-sellers' },
                 { label: 'SHOP', to: '/shop' },
                 { label: 'CHECKOUT', to: '/checkout' },
                 { label: 'CONTACT US', to: '/contact' }

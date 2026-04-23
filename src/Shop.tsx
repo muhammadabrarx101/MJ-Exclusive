@@ -10,7 +10,7 @@ export const Shop = () => {
   
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState(initialQuery);
-  const categories = ['All', 'Shalwar Kameez', 'Pajama Kameez', 'Thobe', 'Sherwani', 'Waist Coat', 'Kufi'];
+  const categories = ['All', 'Shalwar Kameez', 'Kurta Pajama', 'Thobe', 'Sherwani', 'Waist Coat', 'Kufi'];
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);

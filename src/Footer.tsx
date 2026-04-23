@@ -35,10 +35,12 @@ export const Footer = () => {
           <div>
             <h5 className="text-white font-heading font-bold text-xs tracking-widest mb-8 uppercase">Collections</h5>
             <ul className="space-y-4 text-white/40 text-sm font-light">
-              <li><Link to="/shop" className="hover:text-brand-gold transition-colors">Sherwanis</Link></li>
-              <li><Link to="/shop" className="hover:text-brand-gold transition-colors">Shalwar Kameez</Link></li>
-              <li><Link to="/shop" className="hover:text-brand-gold transition-colors">Thobes</Link></li>
-              <li><Link to="/shop" className="hover:text-brand-gold transition-colors">Waistcoats</Link></li>
+              <li><Link to="/shop?cat=Sherwani" className="hover:text-brand-gold transition-colors">Sherwanis</Link></li>
+              <li><Link to="/shop?cat=Shalwar Kameez" className="hover:text-brand-gold transition-colors">Shalwar Kameez</Link></li>
+              <li><Link to="/shop?cat=Kurta Pajama" className="hover:text-brand-gold transition-colors">Kurta Pajama</Link></li>
+              <li><Link to="/shop?cat=Thobe" className="hover:text-brand-gold transition-colors">Thobes</Link></li>
+              <li><Link to="/shop?cat=Waist Coat" className="hover:text-brand-gold transition-colors">Waistcoats</Link></li>
+              <li><Link to="/shop?cat=Kufi" className="hover:text-brand-gold transition-colors">Kufis</Link></li>
             </ul>
           </div>
 

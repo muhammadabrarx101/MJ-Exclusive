@@ -4,6 +4,8 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { Home } from './Home';
 import { Shop } from './Shop';
+import { NewArrivals } from './NewArrivals';
+import { BestSellers } from './BestSellers';
 import { ProductDetail } from './ProductDetail';
 import { Checkout } from './Checkout';
 import { Contact } from './Contact';
@@ -35,6 +37,8 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/new-arrivals" element={<NewArrivals />} />
+          <Route path="/best-sellers" element={<BestSellers />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/contact" element={<Contact />} />

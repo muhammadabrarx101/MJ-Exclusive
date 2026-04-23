@@ -4,14 +4,18 @@ import { ArrowRight, ChevronRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ProductCard } from './components/ProductCard';
 import { PRODUCTS } from './data';
+import heroBanner from './assets/mj-exclusive-main-banner.png';
+// Fallback for missing assets
+const arcticBlue = 'https://images.unsplash.com/photo-1617130639498-56734bddbb7a?auto=format&fit=crop&q=80&w=800';
+const kufiColl = 'https://images.unsplash.com/photo-1590076296150-f823f6687093?auto=format&fit=crop&q=80&w=800';
 
 const COLLECTIONS = [
-  { name: 'SHALWAR KAMEEZ', id: 'Shalwar Kameez', image: 'https://i.pinimg.com/736x/cb/28/6e/cb286ec190420dd9291cc5cd90e91b70.jpg' },
-  { name: 'PAJAMA KAMEEZ', id: 'Pajama Kameez', image: 'https://i.pinimg.com/736x/c2/91/52/c291523a89a387e8b548a4e91c74c00f.jpg' },
+  { name: 'SHALWAR KAMEEZ', id: 'Shalwar Kameez', image: 'https://i.pinimg.com/736x/9e/7f/84/9e7f84c58ebe20baddb0539b1b1a0cd5.jpg'  },
+  { name: 'KURTA PAJAMA', id: 'Kurta Pajama', image: 'https://i.pinimg.com/736x/c2/91/52/c291523a89a387e8b548a4e91c74c00f.jpg' },
   { name: 'THOBE', id: 'Thobe', image: 'https://i.pinimg.com/736x/c9/e9/26/c9e9265e4286a9e6ec58e26829b46148.jpg' },
   { name: 'SHERWANI', id: 'Sherwani', image: 'https://i.pinimg.com/736x/ba/0a/f3/ba0af3772ccd497820e2ca0bc4157703.jpg' },
-  { name: 'WASIT COAT', id: 'Waist Coat', image: 'https://i.pinimg.com/736x/d9/3e/48/d93e48dade02d0c9285d115e8f1c02df.jpg' },
-  { name: 'KUFI', id: 'Kufi', image: 'https://s.alicdn.com/@sc04/kf/Ac304ce00ee104ec8a16886b5d686f839a/ZAF-356-Premium-Embroidered-Namaz-Prayer-Cap-Muslim-Oman-with-Breathable-Muslim-Mens-Prayer-Caps-For-Men-islamic-clothing.png' },
+  { name: 'WAIST COAT', id: 'Waist Coat', image: 'https://i.pinimg.com/736x/d9/3e/48/d93e48dade02d0c9285d115e8f1c02df.jpg' },
+  { name: 'KUFI', id: 'Kufi', image: 'https://lh3.googleusercontent.com/rd-gg/AEir0wK8wRFkF64u0vsTxz7ebPEXh02gcPNnZ8G_73uQQq5Mj1wRJdNYZEdgU-BPx-0iJ7JjgoYUizkqIxLmHwiaLb1r9N3y249G2WFLpxWt907se9aIoM4LqdRk0KEvI6Ge8mws74ngwPVHZTZJmwCDJdhipPsIEDyj7SiiAE_-I7pVcQAW86TvQkx4wPWKhTQ9x1QdVyaDIIqHMUDK6Scy_nzdae2HkGloIHbJZ4FIMArUpQ-f6r3h6LAuMogE2FU8ZBmW5fJLKdWyW1E-GLH9XpUveIUWUT4goNwqkIFDOJKRHD4Luei-IA6yS9lKqoR82rWRD4SRCGGFX9SEEb3aBF7mh1laWyjH5zXT2DnXc3If_kt0GG71dj6KwIYkmQbMdWpxOOnGXjDcuUgb-VGQt6iT-TWYGdeTi4sxfFgciSm7pZODrhaCmoriMo1YsBnFcMvadxvtxtSro0rsajeN0iyqg8kvNAawuo_6tW8njNrcHurlGx3n3bTs8KqQgQkKkNzHl8jzEdtJDEVKGfK82EJhUergJmiMQTnP6oAPnldRirmEr6YXlZRS_m0FcDJGh9vxjCI5eAZqTi3wPA2mHrt2NDaOdFcKkwE3VwBhuZnM8wHzMZ7VTXEVweQiM4fGrdshODPDypCWnQ0uXiiizB2CM4REvEsxE4hww_cCKXvrnErBg75dOr6QVZ7zrkIBC7cv1rOrZi1ivFGxth57GhE_rgtwQLM6HyrQYA7aS8QpXoSNFaudhP1Bi5XoX_FY4UD-HCYOOImNxWOWA-6Ow9ZNh1hKW1GU2ZbhbZlfzNJUx9kf13SkcNXXc7cmfiV59lGUiPE7iV_TXb2e2IrlwnL_JMimrn4Y4xs24cnanF4V_KbaKBMknNY8xyotD9vu2lq5CwgGauGEk7g1Vb4EBSDD702J4L7lTqnLDTT0DZe0Lc3DB13d2HIU8lXoca00Y9qkVuugY6zsvC2CoC0JvDtFdgojTmnFukms3F60L-S-7WGfQitPDzY9JR_5wJzOJIHWw8ec9NiytdZy5aI0ZYNpJ36NQQbU7N4KLlo7S6Y6pnzf4hsD3whbaS99BNVcnA3sFManhv2FdPnMR7gynk8WZDiL5U-capTEmRlGbmP-pyGmLbL9_NkwZRivO8gJw8SNxJY1xieNF-gaNQ3JhzDExzSz2UFq2cGN-9410FX7V9Z7Z9--bsNaS1VeNFw7zguZ8WTBNHa82jaLETJmf1I8bdamjtdKlTrdO2bnSKTvMe0Y6lWegscWdUh-YAvRnsSDAxVfY_KTxHC47mMXUlsI2_BvE-_Xvx_vYeaQ4RWNQkj5cXk01TmW13s6eO6EsL99Kb-jklyk8VzVZ59Rzhh10EKD2qZtx_e0muccVPIbGX2JLsaIDQ=s1600' },
 ];
 
 const REVIEWS = [
@@ -61,7 +65,7 @@ export const Home = () => {
   return (
     <div className="bg-obsidian">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-40 lg:pt-20 bg-obsidian">
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-48 lg:pt-40 bg-obsidian">
         <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -91,15 +95,15 @@ export const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex-1 relative w-full"
           >
-            <div className="relative aspect-[4/5] w-full max-w-lg mx-auto">
+            <div className="relative w-full max-w-2xl mx-auto overflow-hidden group">
               <div className="absolute inset-0 border border-brand-gold/20 translate-x-4 translate-y-4 z-0" />
               <img 
-                src="https://picsum.photos/seed/mjhero2/800/1000" 
+                src={heroBanner} 
                 alt="MJ Exclusive Heritage"
-                className="w-full h-full object-cover relative z-10 grayscale hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-auto max-h-[80vh] object-contain relative z-10 transition-all duration-700"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent z-20 opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent z-20 opacity-40 pointer-events-none" />
             </div>
             
             {/* Mobile Only Button */}
@@ -170,6 +174,9 @@ export const Home = () => {
               <span className="text-brand-gold font-heading tracking-[0.3em] text-[10px] uppercase mb-4 block">FRESH DROPS</span>
               <h2 className="font-display text-4xl lg:text-5xl text-white">New <span className="serif-italic text-brand-gold-muted text-5xl lg:text-6xl">Arrivals</span></h2>
             </div>
+            <Link to="/new-arrivals" className="text-[10px] tracking-widest font-bold text-brand-gold border-b border-brand-gold pb-1 hover:text-white hover:border-white transition-colors uppercase">
+              View All New Arrivals
+            </Link>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -183,9 +190,14 @@ export const Home = () => {
       {/* Best Sellers */}
       <section className="py-24 bg-obsidian">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-brand-gold font-heading tracking-[0.3em] text-[10px] uppercase mb-4 block">MOST WANTED</span>
-            <h2 className="font-display text-4xl lg:text-5xl text-white">Our <span className="serif-italic text-brand-gold-muted text-5xl lg:text-6xl">Best Sellers</span></h2>
+          <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8 text-center md:text-left">
+            <div className="mx-auto md:mx-0">
+              <span className="text-brand-gold font-heading tracking-[0.3em] text-[10px] uppercase mb-4 block">MOST WANTED</span>
+              <h2 className="font-display text-4xl lg:text-5xl text-white">Our <span className="serif-italic text-brand-gold-muted text-5xl lg:text-6xl">Best Sellers</span></h2>
+            </div>
+            <Link to="/best-sellers" className="mx-auto md:mx-0 text-[10px] tracking-widest font-bold text-brand-gold border-b border-brand-gold pb-1 hover:text-white hover:border-white transition-colors uppercase">
+              View All Best Sellers
+            </Link>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -209,7 +221,7 @@ export const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left mt-12">
               <ul className="space-y-4 text-white/50 text-sm font-light">
                 <li className="flex items-center gap-3"><Check size={16} className="text-brand-gold" /> Cash On Delivery Available</li>
-                <li className="flex items-center gap-3"><Check size={16} className="text-brand-gold" /> Free Shipping Over Rs. 15,000</li>
+                <li className="flex items-center gap-3"><Check size={16} className="text-brand-gold" /> Free Shipping Above Rs. 20,000/-</li>
                 <li className="flex items-center gap-3"><Check size={16} className="text-brand-gold" /> TCS / Leopards Delivery (2-4 Days)</li>
               </ul>
               <ul className="space-y-4 text-white/50 text-sm font-light">
